@@ -152,6 +152,8 @@
 			if(document.getElementById('email').value){
 				document.getElementById('pwnd').style.transform='scale(1)';
 				 document.activeElement.blur();
+			} else {
+				document.getElementById('pwnd').style.transform='scale(0.01)';
 			}
 		})
 	}
