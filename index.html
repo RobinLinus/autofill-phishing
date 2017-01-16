@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Autofill Privacy Leak</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="RobinLinus">
+    <meta property="image" content="https://robinlinus.github.io/images/robinlinus.png" />
+    <meta property="author" content="Robin Linus - Security, Privacy and Blockchain Consulting" />
+    <meta property="og:title" content="Robin Linus - Security, Privacy and Blockchain Consulting" />
+    <meta property="og:image" content="https://robinlinus.github.io/images/robinlinus.png" />
+    <meta property="og:image:url" content="https://robinlinus.github.io/images/robinlinus.png" />
+    <meta property="og:site_name" content="Robin Linus - Security, Privacy and Blockchain Consulting" />
+    <meta property="og:type" content="article" />
+    <meta property="og:author" content="https://facebook.com/RobinLinus" />
+    <meta property="fb:pages" content="451189218422617" />
+    <meta property="fb:profile_id" content="451189218422617" />
+    <meta property="og:url" content="https://robinlinus.github.io/" />
+    <meta property="fb:app_id" content="1527795287522439" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Robin Linus - Security, Privacy and Blockchain Consulting">
+    <meta name="twitter:image" content="https://robinlinus.github.io/images/robinlinus.png" />
+    <meta name="twitter:description" content="Robin Linus - Security, Privacy and Blockchain Consulting">
+    <meta name="twitter:creator:id" content="4675481071">
+    <meta name="author" content="Robin Linus" />
+
+	<style type="text/css">
+		body{
+/*			width: 100%;
+*/			background: #82B1FF;
+			text-align: center;
+			/*overflow: hidden;*/
+			color: white;
+			font-family: sans-serif;	
+			padding-top: 24px;
+			padding-bottom: 40px;
+		}
+
+		form{
+		   margin: 0 auto;
+		   width: 90%;
+		   max-width: 720px;
+		}
+
+		#email{
+			display: inline-block;
+			width: 100%;
+		    font-size: 24px;
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    box-shadow: none;
+		    border-radius: 3px;
+		    box-sizing: border-box;
+		    background: #448AFF;
+		    color: white;
+		    text-align: center;
+		    padding: 12px;
+		    border: none;
+		    border-bottom: solid 2px #82B1FF;
+		    -webkit-transition: border 0.3s;
+		    transition: border 0.3s;
+		}
+
+		#email:focus {
+    		border-bottom: solid 2px #F48FB1;
+		}
+
+		#innocent{
+			margin-top: 80px;
+		}
+
+		#innocent span{
+			font-size: 11px;
+		}
+
+		#pwnd{
+			margin-top: 80px;
+			-webkit-transition: transform 500ms;
+			transition: transform 500ms;
+			transform: scale(0.01);
+			-webkit-transform: scale(0.01);
+		}
+
+		#pwnd input{
+			background: none;
+		    border: none;
+		    display: inline-block;
+		    padding: 8px;
+		    margin: 0;	
+		}
+
+		a{
+			color: white;
+			text-decoration: none;
+		}
+		a:hover{
+			text-decoration: underline;
+		}
+
+		#explain{
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+
+<form>
+	<h2>Autofill Phishing Demo</h2>
+	<div id="explain">
+		This is a demonstration of a security issue in your browser's  autofill feature.<br>
+	It is inspired by <i><a href="http://www.forbes.com/sites/leemathews/2017/01/10/this-simple-phishing-attack-tricks-you-into-leaking-browser-autofill-data/#2ba6ade7482a" target="_blank">this article</a></i> and designed to demonstrate the issue to less tech-savvy users.
+	</div>
+	<div id="innocent">
+		<h3>Autofill this innocent input:</h3>
+		<input id="email" name="email" type="text" placeholder="you@email.com" autofocus required >
+		<br><span>(We do not send or store any data)</span>
+	</div>
+	<div id="pwnd">
+		<h1>Identity leaked!</h1>
+		A malicious website could have stolen your identity:<br><br>
+		<input name="name" type="text" id="name">
+		<input name="firstname" type="text">
+		<input name="lastname" type="text">
+		<input name="company" type="text"> 
+		<input name="country" type="text"> 
+		<input name="city" type="text">
+		<input name="postal" type="text">
+		<input name="street" type="text">
+		<input type="number" name="cc_cvv">
+		<input type="number" name="cc_month">
+		<input type="text" name="cc_number">
+		<div>Use the Autofill feature only on trusted websites!</div>
+	</div>
+</form>
+<script type="text/javascript">
+	document.getElementById('email').oninput=function(){
+		debounce(function(){
+			if(document.getElementById('name').value){
+				document.getElementById('pwnd').style.transform='scale(1)';
+				 document.activeElement.blur();
+			}
+		})
+	}
+
+	var timer = null;
+	function debounce(callback){
+		if(timer){
+			clearTimeout(timer);
+		}
+		timer = setTimeout(callback,500);
+	}
+
+</script>
+</body>
+</html>
