@@ -31,7 +31,7 @@
 /*			width: 100%;
 */			background: #82B1FF;
 			text-align: center;
-			/*overflow: hidden;*/
+			overflow: hidden;
 			color: white;
 			font-family: sans-serif;	
 			padding-top: 24px;
@@ -151,6 +151,7 @@
 	document.getElementById('name').oninput=function(){
 		debounce(function(){
 			if(document.getElementById('email').value){
+				document.body.style.overflow='auto';
 				document.getElementById('pwnd').style.transform='scale(1)';
 				 document.activeElement.blur();
 			} else {
