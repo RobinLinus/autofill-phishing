@@ -28,10 +28,8 @@
 
 	<style type="text/css">
 		body{
-/*			width: 100%;
-*/			background: #82B1FF;
+			background: #82B1FF;
 			text-align: center;
-			overflow: hidden;
 			color: white;
 			font-family: sans-serif;	
 			padding-top: 24px;
@@ -82,6 +80,7 @@
 			transition: transform 500ms;
 			transform: scale(0.01);
 			-webkit-transform: scale(0.01);
+			height: 20px;
 		}
 
 		#pwnd input{
@@ -151,9 +150,10 @@
 	document.getElementById('name').oninput=function(){
 		debounce(function(){
 			if(document.getElementById('email').value){
-				document.body.style.overflow='auto';
-				document.getElementById('pwnd').style.transform='scale(1)';
-				 document.activeElement.blur();
+				var pwnd =document.getElementById('pwnd').style;
+				pwnd.height='auto';
+				pwnd.transform='scale(1)';
+				document.activeElement.blur();
 			} else {
 				document.getElementById('pwnd').style.transform='scale(0.01)';
 			}
