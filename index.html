@@ -44,7 +44,7 @@
 		   max-width: 720px;
 		}
 
-		#email{
+		#name{
 			display: inline-block;
 			width: 100%;
 		    font-size: 24px;
@@ -64,7 +64,7 @@
 		    transition: border 0.3s;
 		}
 
-		#email:focus {
+		#name:focus {
     		border-bottom: solid 2px #F48FB1;
 		}
 
@@ -115,13 +115,13 @@
 	</div>
 	<div id="innocent">
 		<h3>Auto-fill this innocent input:</h3>
-		<input id="email" name="email" type="text" placeholder="you@email.com" autofocus required >
+		<input id="name" name="name" type="text" placeholder="Your First Name" autofocus required >
 		<br><span>(None of your data will leave your device)</span>
 	</div>
 	<div id="pwnd">
 		<h1>Identity leaked!</h1>
 		A malicious website could have stolen your identity:<br><br>
-		<input name="name" type="text" id="name">
+		<input name="email" type="text" id="email">
 		<input name="firstname" type="text">
 		<input name="lastname" type="text">
 		<input name="company" type="text"> 
@@ -130,7 +130,7 @@
 		<input name="postal" type="text">
 		<input name="street" type="text">
 		<input name="tel" type="text">
-		<input name="bday" type=month autocomplete="bday">
+		<input name="bday" autocomplete="bday">
 		<input type="number" name="cc_cvv">
 		<input type="number" name="cc_month">
 		<input type="text" name="cc_number">
@@ -140,9 +140,9 @@
 
 <a href="https://robinlinus.github.io"><footer>Built with ♥ by RobinLinus</footer></a>
 <script type="text/javascript">
-	document.getElementById('email').oninput=function(){
+	document.getElementById('name').oninput=function(){
 		debounce(function(){
-			if(document.getElementById('name').value){
+			if(document.getElementById('email').value){
 				document.getElementById('pwnd').style.transform='scale(1)';
 				 document.activeElement.blur();
 			}
