@@ -34,6 +34,7 @@
 			font-family: sans-serif;	
 			padding-top: 24px;
 			padding-bottom: 40px;
+			line-height: 20px;
 		}
 
 		form{
@@ -121,13 +122,13 @@
 	It is inspired by <i><a href="https://www.theguardian.com/technology/2017/jan/10/browser-autofill-used-to-steal-personal-details-in-new-phising-attack-chrome-safari" target="_blank">a recent publication</a></i> and designed to demonstrate this issue to less tech-savvy users.<br> <b>(Firefox Desktop and iOS Safari are immune from this issue)</b>
 	</div>
 	<div id="innocent">
-		<h3>Click to Auto-fill this input:</h3>
-		<input id="name" name="name" type="text" placeholder="Enter your Name" autofocus required autocomplete="name">
+		<h3>Click to Auto-fill this innocent form:</h3>
+		<input id="name" name="name" type="text" placeholder="Your Name" autofocus required autocomplete="name">
 		<br><span>(None of your data will leave your device)</span>
 	</div>
 	<div id="pwnd">
 		<h1>Identity leaked!</h1>
-		By entering your name you just leaked your full identity:<br><br>
+		Did you notice all those hidden fields?<br><br>
 		<h4>Your Names</h4>
 		<input id="firstname" name="firstname" type="text">
 		<input id="lastname" name="lastname" type="text">
@@ -148,7 +149,9 @@
 		<input id="cc_year" type="number" name="cc_year">
 		<input id="cc_cvv" type="number" name="cc_cvv">
 		<br><br>
-		<div><strong>Always be suspicious when you auto-fill a form !!!</strong></div><br><br><br>
+		<div><strong>Always be suspicious when you use auto-fill!</strong><br>
+		Your browser may fill fields that are hidden from you. 
+		</div><br><br><br>
 		<a href="https://github.com/RobinLinus/autofill-phishing" target="_blank">This demo is open source.</a><br><br><br><br>
 	</div>
 </form>
