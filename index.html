@@ -114,47 +114,47 @@
 	</style>
 </head>
 <body>
-
-<form autocomplete="on">
 	<h2>Auto-fill Phishing Demo</h2>
-	<div id="explain">
-		This is a simple demonstration of a security issue in most browser's  Auto-fill feature.<br>
-	It is inspired by <i><a href="https://www.theguardian.com/technology/2017/jan/10/browser-autofill-used-to-steal-personal-details-in-new-phising-attack-chrome-safari" target="_blank">a recent publication</a></i> and designed to demonstrate this issue to less tech-savvy users.<br> <b>(Firefox Desktop and iOS Safari are immune from this issue)</b>
-	</div>
-	<div id="innocent">
-		<h3>Start typing or click to use autofill:</h3>
-		<input id="name" name="name" type="text" placeholder="Your Name" autofocus required autocomplete="name">
-		<br><span>(None of your data will leave your device)</span>
-	</div>
-	<div id="pwnd">
-		<h1>Identity leaked!</h1>
-		Did you notice all those hidden fields?<br><br>
-		<h4>Your Names</h4>
-		<input id="firstname" name="firstname" type="text" >
-		<input id="lastname" name="lastname" type="text">
-		<h4>Your Email</h4>
-		<input id="email" name="email" type="text" id="email">
-		<h4>Your Job</h4>
-		<input id="company" name="company" type="text"> 
-		<h4>Your Address</h4>
-		<input id="street" name="street" type="text" id="street">
-		<input id="postal" name="postal" type="text">
-		<input id="city" name="city" type="text">
-		<input id="country" name="country" type="text"> 
-		<h4>Your Phone Number</h4>
-		<input id="phone" name="phone" type="text">
-		<h4>Credit Card Info</h4>
-		<input id="cc_number" type="text" name="cc_number">
-		<input id="cc_month" type="number" name="cc_month">
-		<input id="cc_year" type="number" name="cc_year">
-		<input id="cc_cvv" type="number" name="cc_cvv">
-		<br><br>
-		<div><strong>Always be suspicious when you use auto-fill!</strong><br>
-		Your browser may fill fields that are hidden from you. 
-		</div><br><br><br>
-		<a href="https://github.com/RobinLinus/autofill-phishing" target="_blank">This demo is open source.</a><br><br><br><br>
-	</div>
-</form>
+	<noscript><h1>Javascript must be enabled!</h1><style>h1{margin-top: 80px;}form{display: none;}</style></noscript>
+	<form autocomplete="on">
+		<div id="explain">
+			This is a simple demonstration of a security issue in most browser's  Auto-fill feature.<br> 
+		It is inspired by <i><a href="https://www.theguardian.com/technology/2017/jan/10/browser-autofill-used-to-steal-personal-details-in-new-phising-attack-chrome-safari" target="_blank">a recent publication</a></i> and designed to demonstrate this issue to less tech-savvy users.<br> <b>(Firefox Desktop and iOS Safari are immune from this issue)</b>
+		</div>
+		<div id="innocent">
+			<h3>Start typing or click to use autofill:</h3>
+			<input id="name" name="name" type="text" placeholder="Your Name" autofocus required autocomplete="name">
+			<br><span>(None of your data will leave your device)</span>
+		</div>
+		<div id="pwnd">
+			<h1>Identity leaked!</h1>
+			Did you notice all those hidden fields?<br><br>
+			<h4>Your Names</h4>
+			<input id="firstname" name="firstname" type="text" >
+			<input id="lastname" name="lastname" type="text">
+			<h4>Your Email</h4>
+			<input id="email" name="email" type="text" id="email">
+			<h4>Your Job</h4>
+			<input id="company" name="company" type="text"> 
+			<h4>Your Address</h4>
+			<input id="street" name="street" type="text" id="street">
+			<input id="postal" name="postal" type="text">
+			<input id="city" name="city" type="text">
+			<input id="country" name="country" type="text"> 
+			<h4>Your Phone Number</h4>
+			<input id="phone" name="phone" type="text">
+			<h4>Credit Card Info</h4>
+			<input id="cc_number" type="text" name="cc_number">
+			<input id="cc_month" type="number" name="cc_month">
+			<input id="cc_year" type="number" name="cc_year">
+			<input id="cc_cvv" type="number" name="cc_cvv">
+			<br><br>
+			<div><strong>Always be suspicious when you use auto-fill!</strong><br>
+			Your browser may fill fields that are hidden from you. 
+			</div><br><br><br>
+			<a href="https://github.com/RobinLinus/autofill-phishing" target="_blank">This demo is open source.</a><br><br><br><br>
+		</div>
+	</form>
 
 <a href="https://robinlinus.github.io"><footer>Built with ♥ by RobinLinus</footer></a>
 <script type="text/javascript">
