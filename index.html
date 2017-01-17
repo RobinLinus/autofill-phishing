@@ -122,7 +122,7 @@
 	It is inspired by <i><a href="https://www.theguardian.com/technology/2017/jan/10/browser-autofill-used-to-steal-personal-details-in-new-phising-attack-chrome-safari" target="_blank">a recent publication</a></i> and designed to demonstrate this issue to less tech-savvy users.<br> <b>(Firefox Desktop and iOS Safari are immune from this issue)</b>
 	</div>
 	<div id="innocent">
-		<h3>Click to Auto-fill this innocent form:</h3>
+		<h3>Click or start typing to use autofill:</h3>
 		<input id="name" name="name" type="text" placeholder="Your Name" autofocus required autocomplete="name">
 		<br><span>(None of your data will leave your device)</span>
 	</div>
@@ -130,14 +130,14 @@
 		<h1>Identity leaked!</h1>
 		Did you notice all those hidden fields?<br><br>
 		<h4>Your Names</h4>
-		<input id="firstname" name="firstname" type="text">
+		<input id="firstname" name="firstname" type="text" >
 		<input id="lastname" name="lastname" type="text">
 		<h4>Your Email</h4>
 		<input id="email" name="email" type="text" id="email">
 		<h4>Your Job</h4>
 		<input id="company" name="company" type="text"> 
 		<h4>Your Address</h4>
-		<input id="street" name="street" type="text">
+		<input id="street" name="street" type="text" id="street">
 		<input id="postal" name="postal" type="text">
 		<input id="city" name="city" type="text">
 		<input id="country" name="country" type="text"> 
@@ -158,15 +158,18 @@
 
 <a href="https://robinlinus.github.io"><footer>Built with ♥ by RobinLinus</footer></a>
 <script type="text/javascript">
-	document.getElementById('name').oninput=function(){
+	var q = function(id){
+		return document.getElementById(id);
+	}
+	q('name').oninput=function(){
 		debounce(function(){
-			if(document.getElementById('email').value){
-				var pwnd =document.getElementById('pwnd').style;
+			if(q('email').value || q('email').value){
+				var pwnd =q('pwnd').style;
 				pwnd.height='auto';
 				pwnd.transform='scale(1)';
 				document.activeElement.blur();
 			} else {
-				document.getElementById('pwnd').style.transform='scale(0.01)';
+				q('pwnd').style.transform='scale(0.01)';
 			}
 		})
 	}
